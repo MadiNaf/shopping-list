@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 InputDecoration getInputDecoration(Icon icon) {
   return InputDecoration(
       prefixIcon: icon,
-      prefixIconColor: Colors.black87,
-      fillColor: Colors.transparent,
+      // prefixIconColor: Colors.black87,
+      fillColor: Color(0x33ffbd77),
       filled: true,
       border: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.blueGrey)),

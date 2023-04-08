@@ -22,6 +22,26 @@ class MyApp extends StatelessWidget {
     return StreamProvider<UserEntity>.value(
         value: AuthService().user,
         initialData: UserEntity(uid: '', email: ''),
-        child: MaterialApp(home: Wrapper()));
+        child: MaterialApp(
+            theme: ThemeData(
+              primarySwatch: customPrimaryColor(),
+            ),
+            home: Wrapper(),
+            debugShowCheckedModeBanner: false));
+  }
+
+  MaterialColor customPrimaryColor() {
+    return const MaterialColor(0xffdf7200, <int, Color>{
+      50: Color(0xffdf7200),
+      100: Color(0xffdf7200),
+      200: Color(0xffdf7200),
+      300: Color(0xffdf7200),
+      400: Color(0xffdf7200),
+      500: Color(0xffdf7200),
+      600: Color(0xffdf7200),
+      700: Color(0xffdf7200),
+      800: Color(0xffdf7200),
+      900: Color(0xffdf7200),
+    });
   }
 }
