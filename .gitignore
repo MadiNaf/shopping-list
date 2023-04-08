@@ -33,6 +33,10 @@ migrate_working_dir/
 /build/
 
 # android
+android/build.gradle
+android/gradle.properties
+android/gradle/wrapper/gradle-wrapper.properties
+android/settings.gradle
 gradle-wrapper.jar
 /.gradle
 /captures/
@@ -57,3 +61,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase
+google-services.json

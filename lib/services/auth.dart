@@ -29,17 +29,33 @@ class AuthService {
   }
 
   // sign in with email & password
-  Future signInWithEmail() async {
+  Future<UserEntity> signInWithEmailAndPassword(
+      String email, String password) async {
     try {
       // Connexion avec email et mot de passe
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: 'email@example.com', password: 'mot_de_passe');
+          email: email, password: password);
       User? user = userCredential.user;
-      // Utilisation de l'utilisateur connecté
-      print('Connecté avec succès : ${user}');
-    } catch (e) {}
+      return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return _userFromFirebaseUser(null);
+    }
   }
+
   // sign up with email & password
+  Future<UserEntity> signUpWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      User? user = userCredential.user;
+      return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return _userFromFirebaseUser(null);
+    }
+  }
 
   // sign out
   Future<void> signOut() async {
