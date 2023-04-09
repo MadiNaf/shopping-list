@@ -4,8 +4,7 @@ class ItemEntity {
   String id = '';
   String name;
   List<ItemPrice> prices;
-  Int barCode;
-  bool isChecked = false;
+  int barCode;
 
   ItemEntity(
       {required this.name, required this.prices, required this.barCode}) {}
@@ -18,6 +17,7 @@ class ItemEntity {
 class SingleItem {
   String id = '';
   double price = 0;
+  bool ordered = false;
 }
 
 class ItemPrice {

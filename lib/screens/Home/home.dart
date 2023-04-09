@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
                 const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
             tabs: [
               createGBButton(Icons.home, 'Accueil'),
-              createGBButton(Icons.shopping_cart, 'Liste des courses'),
+              createGBButton(Icons.shopping_cart, 'Je fais ma liste'),
               createGBButton(Icons.add, 'Ajouter un produit'),
               createGBButton(Icons.settings, 'Paramètre')
             ]),
