@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/utils/colors.dart';
 
-InputDecoration useInputDecoration([Icon? icon, String? label]) {
+InputDecoration useInputDecoration({Icon? icon, String? label}) {
   return InputDecoration(
       prefixIcon: icon,
       prefixText: label,

@@ -56,7 +56,8 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 20.0),
                       TextFormField(
                         validator: emailValidator,
-                        decoration: useInputDecoration(const Icon(Icons.email)),
+                        decoration:
+                            useInputDecoration(icon: const Icon(Icons.email)),
                         cursorColor: Colors.blueGrey[800],
                         style: useInputTextStyle(),
                         onChanged: (value) => setState(() => email = value),
@@ -64,7 +65,8 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 25.0),
                       TextFormField(
                         validator: passwordValidator,
-                        decoration: useInputDecoration(const Icon(Icons.lock)),
+                        decoration:
+                            useInputDecoration(icon: const Icon(Icons.lock)),
                         cursorColor: Colors.blueGrey[800],
                         style: useInputTextStyle(),
                         obscureText: true,
@@ -75,7 +77,8 @@ class _SignUpState extends State<SignUp> {
                         validator: (value) =>
                             passwordConfirmationValidator(password, value),
                         cursorColor: Colors.blueGrey[800],
-                        decoration: useInputDecoration(const Icon(Icons.lock)),
+                        decoration:
+                            useInputDecoration(icon: const Icon(Icons.lock)),
                         style: useInputTextStyle(),
                         obscureText: true,
                         onChanged: (value) =>
@@ -83,10 +86,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       const SizedBox(height: 30.0),
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 12.0, horizontal: 25.0),
-                            backgroundColor: orangeLight),
+                        style: useElevationButtonStyle(),
                         onPressed: userRegister,
                         child: usePrimaryButton('Valider'),
                       ),

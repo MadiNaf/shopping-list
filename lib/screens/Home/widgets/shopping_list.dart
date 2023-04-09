@@ -20,13 +20,14 @@ class _ShoppingListState extends State<ShoppingList> {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             height: 50,
-            decoration: BoxDecoration(color: Colors.transparent),
+            decoration: const BoxDecoration(color: Colors.transparent),
             child: Row(
               children: [
                 Checkbox(
+                    shape: CircleBorder(),
                     value: isChecked,
                     onChanged: (value) => setState(() {
-                          isChecked = value != null ? value : false;
+                          isChecked = value ?? false;
                         })),
                 Text(
                   'Entry ${entries[index]}',

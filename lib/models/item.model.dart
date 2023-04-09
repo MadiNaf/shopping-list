@@ -1,13 +1,14 @@
 import 'dart:ffi';
 
-class Item {
+class ItemEntity {
   String id = '';
   String name;
   List<ItemPrice> prices;
   Int barCode;
   bool isChecked = false;
 
-  Item({required this.name, required this.prices, required this.barCode}) {}
+  ItemEntity(
+      {required this.name, required this.prices, required this.barCode}) {}
 
   void setUid(String id) {
     id = id;
@@ -16,11 +17,11 @@ class Item {
 
 class SingleItem {
   String id = '';
-  int price = 0;
+  double price = 0;
 }
 
 class ItemPrice {
-  int price;
+  double price;
   String mall;
 
   ItemPrice({required this.price, required this.mall}) {}
