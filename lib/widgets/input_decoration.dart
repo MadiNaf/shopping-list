@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list/utils/colors.dart';
 
-InputDecoration getInputDecoration(Icon icon) {
+InputDecoration useInputDecoration([Icon? icon, String? label]) {
   return InputDecoration(
       prefixIcon: icon,
-      // prefixIconColor: Colors.black87,
-      fillColor: Color(0x33ffbd77),
+      prefixText: label,
+      fillColor: orangeLight33,
       filled: true,
       border: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.blueGrey)),

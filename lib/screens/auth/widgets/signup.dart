@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/models/user.model.dart';
 import 'package:shopping_list/services/auth.dart';
+import 'package:shopping_list/utils/colors.dart';
 import 'package:shopping_list/utils/form_validator.dart';
 import 'package:shopping_list/widgets/appbar_style.dart';
 import 'package:shopping_list/widgets/background_color.dart';
@@ -55,7 +56,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 20.0),
                       TextFormField(
                         validator: emailValidator,
-                        decoration: getInputDecoration(const Icon(Icons.email)),
+                        decoration: useInputDecoration(const Icon(Icons.email)),
                         cursorColor: Colors.blueGrey[800],
                         style: useInputTextStyle(),
                         onChanged: (value) => setState(() => email = value),
@@ -63,7 +64,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 25.0),
                       TextFormField(
                         validator: passwordValidator,
-                        decoration: getInputDecoration(const Icon(Icons.lock)),
+                        decoration: useInputDecoration(const Icon(Icons.lock)),
                         cursorColor: Colors.blueGrey[800],
                         style: useInputTextStyle(),
                         obscureText: true,
@@ -74,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                         validator: (value) =>
                             passwordConfirmationValidator(password, value),
                         cursorColor: Colors.blueGrey[800],
-                        decoration: getInputDecoration(const Icon(Icons.lock)),
+                        decoration: useInputDecoration(const Icon(Icons.lock)),
                         style: useInputTextStyle(),
                         obscureText: true,
                         onChanged: (value) =>
@@ -85,15 +86,14 @@ class _SignUpState extends State<SignUp> {
                         style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 12.0, horizontal: 25.0),
-                            backgroundColor: const Color(0xffffbd77)),
+                            backgroundColor: orangeLight),
                         onPressed: userRegister,
                         child: usePrimaryButton('Valider'),
                       ),
                       const SizedBox(height: 12.0),
                       Text(
                         errMessage,
-                        style:
-                            const TextStyle(color: Colors.red, fontSize: 14.0),
+                        style: const TextStyle(color: redError, fontSize: 14.0),
                       )
                     ],
                   ))),

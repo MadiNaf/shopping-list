@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class AddList extends StatefulWidget {
+class ListForm extends StatefulWidget {
   @override
-  _AddListState createState() => _AddListState();
+  _ListFormState createState() => _ListFormState();
 }
 
-class _AddListState extends State<AddList> {
+class _ListFormState extends State<ListForm> {
   String _scanBarcode = 'Unknown';
 
   @override

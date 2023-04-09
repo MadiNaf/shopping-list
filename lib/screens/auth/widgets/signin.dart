@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/models/user.model.dart';
 import 'package:shopping_list/services/auth.dart';
+import 'package:shopping_list/utils/colors.dart';
 import 'package:shopping_list/utils/form_validator.dart';
 import 'package:shopping_list/widgets/appbar_style.dart';
 import 'package:shopping_list/widgets/background_color.dart';
@@ -25,6 +26,16 @@ class _SignInState extends State<SignIn> {
   String email = '';
   String password = '';
   String errMessage = '';
+
+  void signin() async {
+    if (_loginFormKey.currentState != null &&
+        _loginFormKey.currentState!.validate()) {
+      UserEntity user = await _auth.signInWithEmailAndPassword(email, password);
+      if (user.isEmptyUser()) {
+        setState(() => errMessage = 'Une erreur est survenue.');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,45 +65,35 @@ class _SignInState extends State<SignIn> {
                     const SizedBox(height: 20.0),
                     TextFormField(
                       validator: emailValidator,
-                      decoration: getInputDecoration(const Icon(Icons.email)),
+                      decoration: useInputDecoration(const Icon(Icons.email)),
                       style: useInputTextStyle(),
                       onChanged: (value) => setState(() => email = value),
                     ),
                     const SizedBox(height: 25.0),
                     TextFormField(
                       validator: passwordValidator,
-                      decoration: getInputDecoration(const Icon(Icons.lock)),
+                      decoration: useInputDecoration(const Icon(Icons.lock)),
                       style: useInputTextStyle(),
                       obscureText: true,
                       onChanged: (value) => setState(() => password = value),
                     ),
                     const SizedBox(height: 30.0),
                     ElevatedButton(
-                      child: usePrimaryButton('Valider'),
                       style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 12.0, horizontal: 25.0),
-                          backgroundColor: const Color(0xffffbd77)),
+                          backgroundColor: orangeLight),
                       onPressed: signin,
+                      child: usePrimaryButton('Valider'),
                     ),
                     const SizedBox(height: 12.0),
                     Text(
                       errMessage,
-                      style: const TextStyle(color: Colors.red, fontSize: 14.0),
+                      style: const TextStyle(color: redError, fontSize: 14.0),
                     )
                   ],
                 ))),
       ),
     );
-  }
-
-  void signin() async {
-    if (_loginFormKey.currentState != null &&
-        _loginFormKey.currentState!.validate()) {
-      UserEntity user = await _auth.signInWithEmailAndPassword(email, password);
-      if (user.isEmptyUser()) {
-        setState(() => errMessage = 'Une erreur est survenue.');
-      }
-    }
   }
 }

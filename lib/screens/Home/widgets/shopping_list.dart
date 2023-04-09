@@ -41,3 +41,17 @@ class _ShoppingListState extends State<ShoppingList> {
         });
   }
 }
+
+
+// Center(
+//               child: Padding(
+//                   padding: const EdgeInsets.symmetric(
+//                       vertical: 0.0, horizontal: 12.0),
+//                   child: Card(
+//                       child: Container(
+//                     decoration: const BoxDecoration(color: Color(0x99ffbd77)),
+//                     child: Column(
+//                       mainAxisSize: MainAxisSize.min,
+//                       children: <Widget>[ShoppingList(), Text('Tota : 0 €')],
+//                     ),
+//                   )))),
